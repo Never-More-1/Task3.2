@@ -1,0 +1,39 @@
+#include <stdio.h>
+int Fibonacci(int i)         //проверка наличия числа в таблице Фибоначи
+{
+  int f1 = 1, f2 = 1;
+  int f = 0;
+  int v = 0;
+  while (v < i - 2)
+  {
+    f = f1 + f2;
+    f1 = f2;
+    f2 = f;
+    v++;
+  }
+  return f;
+}
+int main()
+{
+  int N;
+  printf("Input N: ");
+  scanf("%d", &N);
+  if (N > 1)
+  {
+    int a = 1, b = 1, c = 0, i = 2; //a-первое значение в таблице, b-второе, с-последующее, i-номер с которого начинается отсчет
+    for (; c < N; i++)
+    {
+      c = a + b;
+      a = b;
+      b = c;
+    }
+    if (Fibonacci(i) == N)
+    {
+      printf("Serial number K: %d", i);
+    }
+    else {
+      printf("Invalid value N");
+    }
+  }
+  return 0;
+}
